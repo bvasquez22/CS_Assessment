@@ -40,8 +40,6 @@ const mediumArray = getSizedArray(1000);
 const largeArray = getSizedArray(10000);
 const extraLargeArray = getSizedArray(100000);
 
-
-
 // How long does it take to double every number in a given 
 // array? 
 
