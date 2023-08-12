@@ -1,0 +1,35 @@
+tinyArray:
+"Results for the tinyArray
+insert 45.9 μs
+append 114.5 μs"
+
+smallArray:
+"Results for the smallArray
+insert 61.8 μs
+append 135.5 μs"
+
+mediumArray:
+"Results for the mediumArray
+insert 220.2 μs
+append 179.6 μs"
+
+largeArray:
+"Results for the largeArray
+insert 10.0515 ms
+append 719.7 μs"
+
+extraLargeArray:
+"Results for the extraLargeArray
+insert 970.0049 ms
+append 3.2538 ms"
+
+In looking at the two functions, each 10x increase in size also increases the runtime. When working with the first function (insert), at first it would appear that .unshift()
+is a more efficient function than .push(). However, when getting to the mediumArray (n = 1000), .unshift() begins to take much longer. Once working with arrays where
+n = 100,000, .unshift() is almost taking a full second to complete the function, whereas .push() is taking a few milliseconds.
+
+Extra credit:
+
+The reason why .push() increases fairly linearly is because it always adds the new number to the END of the array. Unshift() adds the new number to the FRONT of the array,
+meaning that if there is already a number in the array, it must move the element over 1. This is why the runtime exponentially increases for .unshift(). As the size increases,
+it takes considerably more time to move each element in the list over 1. After some research, this inefficiency is caused by the fact that when moving elements over in the new
+array, it will actually reallocate memory and copy data over. With .push(), because it's adding to the end of the array, it rarely has to reallocate memory and copy data over.
